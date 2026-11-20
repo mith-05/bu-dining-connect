@@ -1,10 +1,9 @@
 
-"use client";
 
 import styled from "styled-components";
 
 // Author: [Your Name]
-// This page will allow students to vote for upcoming menu items.
+// This page will display student feedback and requests for dining staff.
 
 // Style the main content area
 const Container = styled.main`
@@ -20,12 +19,12 @@ const Heading = styled.h1`
     font-size: 36px;
 `;
 
-// Display the weekly voting page
-export default function VotePage() {
+// Display the staff dashboard
+export default function StaffPage() {
     return (
         <Container>
-            <Heading>Weekly Menu Voting</Heading>
-            <p>Vote for the dishes you want to see next week!</p>
+            <Heading>Dining Staff Dashboard</Heading>
+            <p>Review meal ratings, voting results, and organization requests.</p>
         </Container>
     );
 }

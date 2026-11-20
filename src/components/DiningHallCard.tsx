@@ -1,8 +1,6 @@
 
-"use client";
 
-import Image from "next/image";
-import Link from "next/link";
+import { Link } from "react-router";
 import styled from "styled-components";
 
 // Author: [Your Name]
@@ -34,7 +32,7 @@ const Card = styled(Link)`
 `;
 
 // Style the image to fill the width of the card
-const HallImage = styled(Image)`
+const HallImage = styled.img`
     width: 100%;
     height: 200px;
     object-fit: cover;
@@ -66,7 +64,7 @@ export default function DiningHallCard({
                                            image,
                                        }: DiningHallProps) {
     return (
-        <Card href={`/menu?hall=${hallId}`}>
+        <Card to={`/menu?hall=${hallId}`}>
 
             {/* Display the photograph of the selected dining hall */}
             <HallImage

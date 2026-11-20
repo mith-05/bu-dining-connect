@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BU Dining Connect
 
-## Getting Started
+A browser-only React + TypeScript app built with Vite, React Router, and styled-components. There is no backend, database, API server, or Next.js dependency.
 
-First, run the development server:
+## Run locally
 
-```bash
+Use Node.js 24 LTS (recommended), or a version supported by the package.json engines field.
+
+```sh
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open the local URL printed in the terminal (normally http://localhost:5173).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```sh
+npm run lint
+npm run build
+npm run preview
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The build creates a static site in dist. The preview command serves that build locally.
 
-## Learn More
+## Project structure
 
-To learn more about Next.js, take a look at the following resources:
+- src/main.tsx: browser entry point
+- src/App.tsx: shared navigation and routes
+- src/pages: Home, Menu, Vote, Requests, and Staff pages
+- src/components: reusable cards, navigation, and rating controls
+- src/data/menus.ts: sample menu data
+- src/styles/globals.css: global styles
+- public/images: dining hall photos
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Dining hall links select the correct hall through the menu URL. Dish ratings are saved in this browser's local storage and survive refreshes. They are not shared between users or devices. Voting, club requests, and staff dashboard remain the existing placeholder pages.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Existing teammates: switch to this version
 
-## Deploy on Vercel
+Stop any running Next.js development server with Ctrl+C. Save your work in a commit before switching branches.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```sh
+git switch main
+git pull --ff-only
+npm ci
+npm run dev
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The React version is on main. After updating, create your own feature branch before editing. See CONTRIBUTING.md for the team workflow.
+
+## Static hosting
+
+Publish the dist folder. Configure the host to serve index.html for unknown paths so direct visits to /menu, /vote, /requests, and /staff work with browser routing. No credentials or environment variables are required.

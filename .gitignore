@@ -45,3 +45,6 @@ next-env.d.ts
 *.key
 *.p12
 *.pfx
+
+# Vite build output
+/dist/
