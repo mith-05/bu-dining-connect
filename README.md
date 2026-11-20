@@ -38,13 +38,13 @@ Dining hall links select the correct hall through the menu URL. Dish ratings are
 Stop any running Next.js development server with Ctrl+C. Save your work in a commit before switching branches.
 
 ```sh
-git fetch origin
-git switch --track origin/feature/react-frontend
+git switch main
+git pull --ff-only
 npm ci
 npm run dev
 ```
 
-If you already have the migration branch locally, use git switch feature/react-frontend followed by git pull --ff-only instead. After the migration is merged, switch to main and pull before creating your next feature branch. See CONTRIBUTING.md for the team workflow.
+The React version is on main. After updating, create your own feature branch before editing. See CONTRIBUTING.md for the team workflow.
 
 ## Static hosting
 
