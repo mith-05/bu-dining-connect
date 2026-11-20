@@ -1,5 +1,4 @@
 
-"use client";
 
 import { useState } from "react";
 import styled from "styled-components";
@@ -46,15 +45,25 @@ export default function DishRating({ dishId }: DishRatingProps) {
 
     // Store the rating selected by the student
     // Zero means the student has not rated the dish yet
-    const [rating, setRating] = useState(0);
+    const storageKey = `bu-dining-connect:rating:${dishId}`;
+    const [rating, setRating] = useState(() => {
+        try {
+            const saved = Number(localStorage.getItem(storageKey));
+            return Number.isInteger(saved) && saved >= 1 && saved <= 5 ? saved : 0;
+        } catch {
+            return 0;
+        }
+    });
 
     // Update the rating when a student clicks a star
     function handleRating(stars: number) {
         setRating(stars);
 
-        // Log the dish ID and rating for testing
-        console.log("Dish ID:", dishId);
-        console.log("Rating:", stars);
+        try {
+            localStorage.setItem(storageKey, String(stars));
+        } catch {
+            // Ratings still work for this visit when browser storage is unavailable.
+        }
     }
 
     return (
@@ -68,6 +77,7 @@ export default function DishRating({ dishId }: DishRatingProps) {
                         $selected={star <= rating}
                         onClick={() => handleRating(star)}
                         aria-label={`Rate ${star} stars`}
+                        aria-pressed={star === rating}
                     >
                         ★
                     </StarButton>

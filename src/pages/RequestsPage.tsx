@@ -1,10 +1,9 @@
 
-"use client";
 
 import styled from "styled-components";
 
 // Author: [Your Name]
-// This page will display student feedback and requests for dining staff.
+// This page will allow student organizations to submit dining requests.
 
 // Style the main content area
 const Container = styled.main`
@@ -20,12 +19,12 @@ const Heading = styled.h1`
     font-size: 36px;
 `;
 
-// Display the staff dashboard
-export default function StaffPage() {
+// Display the club requests page
+export default function RequestsPage() {
     return (
         <Container>
-            <Heading>Dining Staff Dashboard</Heading>
-            <p>Review meal ratings, voting results, and organization requests.</p>
+            <Heading>Club & Organization Requests</Heading>
+            <p>Submit dining requests for your upcoming events.</p>
         </Container>
     );
 }

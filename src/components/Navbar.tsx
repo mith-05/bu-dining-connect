@@ -1,7 +1,6 @@
 
-"use client";
 
-import Link from "next/link";
+import { Link } from "react-router";
 import styled from "styled-components";
 
 // This component creates a navigation bar shared across the website.
@@ -47,14 +46,14 @@ const NavLink = styled(Link)`
 export default function Navbar() {
     return (
         <Nav>
-            <Logo href="/">BU Dining Connect</Logo>
+            <Logo to="/">BU Dining Connect</Logo>
 
             <Links>
-                <NavLink href="/">Home</NavLink>
-                <NavLink href="/menu">Weekly Menu</NavLink>
-                <NavLink href="/vote">Vote</NavLink>
-                <NavLink href="/requests">Club Requests</NavLink>
-                <NavLink href="/staff">Staff Dashboard</NavLink>
+                <NavLink to="/">Home</NavLink>
+                <NavLink to="/menu">Weekly Menu</NavLink>
+                <NavLink to="/vote">Vote</NavLink>
+                <NavLink to="/requests">Club Requests</NavLink>
+                <NavLink to="/staff">Staff Dashboard</NavLink>
             </Links>
         </Nav>
     );

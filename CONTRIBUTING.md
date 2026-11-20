@@ -2,14 +2,14 @@
 
 ## First-time setup
 
-Accept your GitHub invitation, then clone this repository in WebStorm using **Get from Version Control**. Use Node.js 20.9 or newer.
+Accept your GitHub invitation, then clone this repository in WebStorm using **Get from Version Control**. Use Node.js 24 LTS (recommended), or 20.19+ / 22.12+.
 
 ```sh
 npm ci
 npm run dev
 ```
 
-Open http://localhost:3000. No environment variables are currently required by the app. Keep any future credentials in local environment files and share them privately; never commit them.
+Open http://localhost:5173. No environment variables are currently required by the app. Keep any future credentials in local environment files and share them privately; never commit them.
 
 ## Each feature or fix
 

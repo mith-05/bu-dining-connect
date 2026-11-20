@@ -1,7 +1,6 @@
-"use client";
 
-import { useState, Suspense } from "react";
-import { useSearchParams } from "next/navigation";
+import { useState } from "react";
+import { useSearchParams } from "react-router";
 import styled from "styled-components";
 import { menus } from "@/data/menus";
 import DishRating from "@/components/DishRating";
@@ -91,7 +90,7 @@ const Message = styled.p`
 function MenuContent() {
 
     // Read the query parameters from the current URL
-    const searchParams = useSearchParams();
+    const [searchParams, setSearchParams] = useSearchParams();
 
     // Get the dining hall selected on the homepage
     const hallFromURL = searchParams.get("hall");
@@ -107,7 +106,7 @@ function MenuContent() {
             : "marciano";
 
     // Store the currently selected dining hall
-    const [hall, setHall] = useState(initialHall);
+    const hall = initialHall;
 
     // Store the currently selected day
     const [day, setDay] = useState("Monday");
@@ -136,7 +135,7 @@ function MenuContent() {
                     <Dropdown
                         id="hall"
                         value={hall}
-                        onChange={(e) => setHall(e.target.value)}
+                        onChange={(e) => setSearchParams({ hall: e.target.value })}
                     >
                         <option value="marciano">Marciano Commons</option>
                         <option value="warren">Warren Towers</option>
@@ -217,13 +216,6 @@ function MenuContent() {
     );
 }
 
-// Export the menu page with a Suspense boundary.
-// Suspense allows Next.js to handle the URL search parameters
-// while the menu component is loading.
 export default function MenuPage() {
-    return (
-        <Suspense fallback={<p>Loading dining menu...</p>}>
-            <MenuContent />
-        </Suspense>
-    );
+    return <MenuContent />;
 }
