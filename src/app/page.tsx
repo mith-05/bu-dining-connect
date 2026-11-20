@@ -18,7 +18,7 @@ const Container = styled.main`
 
 // Style the main heading
 const Heading = styled.h1`
-    color: #cc0000;
+    color: #2563eb;
     font-size: 48px;
     margin-bottom: 20px;
 `;
